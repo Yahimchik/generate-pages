@@ -1,0 +1,1802 @@
+﻿[{
+	"VersionControl": {
+		"Release": 1,
+		"ChangeDescription": "initial release",
+		"MaintenanceInstructions": "see VSTS page: Element Definition in JSON"
+	},
+  "Pages": [
+    {
+      "Name": "UploadPlansWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "DownloadFlab",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadFlabText",
+          "XPath": "//label[contains(@title,'flab.xml')]/@title",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "DownloadNoticeCSV",
+          "XPath": "//span[text()='Download Notice CSV']"
+        },
+        {
+          "Name": "DownloadNoticeCSVExist",
+          "XPath": "//td[@title='notice-number.csv / (Comma Separated Values File)']/div[@class='file-info file-ellipsis']",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "CloseButton",
+          "XPath": "//*[contains(@title,'Close')]",
+          "InIFrame": "true"
+        }
+      ]
+    },
+    {
+      "Name": "UploadPlansWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "DownloadFlab",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadFlabText",
+          "XPath": "//label[contains(@title,'flab.xml')]/@title",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "DownloadNoticeCSV",
+          "XPath": "//span[text()='Download Notice CSV']"
+        },
+        {
+          "Name": "DownloadNoticeCSVExist",
+          "XPath": "//td[@title='notice-number.csv / (Comma Separated Values File)']/div[@class='file-info file-ellipsis']",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "CloseButton",
+          "XPath": "//*[contains(@title,'Close')]",
+          "InIFrame": "true"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsBLDWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "DetermineAcquisitionOrAccessMethodsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Determine S2 Access Method' or @title='Determine']"
+        },
+        {
+          "Name": "LapLine",
+          "XPath": "//span[@class='runtime-list-item-wrap' and contains(text(),'${lapid}')]",
+          "Redirect": [
+            "DetermineAcquisitionOrAccessMethodsLapLineWfPage",
+            "Modal"
+          ]
+
+        },
+        {
+          "Name": "InterestLine",
+          "XPath": "//td[contains(@data-options,'${interestid}')]",
+          "Redirect": [
+            "DetermineAcquisitionOrAccessMethodsInterestLineWfPage",
+            "Modal"
+          ]
+
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "\"//*[",
+          "contains(" "translate(.",
+          "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+          "'abcdefghijklmnopqrstuvwxyz')",
+          "are you sure" ")",
+          ]
+          "\""
+        },
+        {
+          "Name": "SubmitAcquisitionsButton",
+          "ElementName": "btn_SubmitAcquisitionMethods"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AcquisitionDropdown",
+          "XPath": "//*[@title='Acquisition:']/../../*[2]"
+        }
+      ]
+    },
+    {
+      "Name": "DetermineAcquisitionOrAccessMethodsLapLineWfPage",
+      "Element": [
+        {
+          "Name": "RightsSought",
+          "ElementId": "00000000-0000-0000-0000-000000000000_952e0932-a937-41ee-8b3c-16c8d9e1aefd_TextArea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "LapComment",
+          "XPath": "//*[contains(text(),'LAP Comment:')]/../../*//textarea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "WorksRequired",
+          "XPath": "//*[contains(@title,'Works Required:')]/../../*//textarea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "SaveButton",
+          "ElementName": "btn_Save",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "Description",
+          "ElementId": "00000000-0000-0000-0000-000000000000_79989670-b746-4cb8-ac38-15fac7587c2b_TextArea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "AcquisitionDropdown",
+          "XPath": "//*[@title='Acq. Method:']/../../*[2]",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "AdminAreaDropdown",
+          "XPath": "//*[@title='Admin Area:']/../../*[4]",
+          "InIFrame": "true"
+        }
+      ]
+    },
+    {
+      "Name": "DetermineAcquisitionOrAccessMethodsInterestLineWfPage",
+      "Element": [
+        {
+          "Name": "LapComment",
+          "XPath": "//*[contains(text(),'LAP Comment:')]/../../*//textarea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "ExclusionReason",
+          "XPath": "//input[@name='tb_ExclusionReason']",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "AcquisitionDropdown",
+          "XPath": "//*[@title='Acq. Method:']/../..//*[contains(@class,'dropdown-box')]",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "InterestQualifier",
+          "XPath": "//*[@title='Interest Qualifier:']/../../*//textarea",
+          "InIFrame": "true"
+        },
+        {
+          "Name": "SaveButton",
+          "ElementName": "btn_Save",
+          "InIFrame": "true"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsAVAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsFSBWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsFSAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsPSAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsPSFWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsPSSWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsSVAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsVEAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsVEBWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsVELWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsATBWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsTREWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsTR7WfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "TreesPreviousServiceDate",
+          "XPath": "//span[@title='Trees Previous Service:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsACCWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "OperationalStartDate",
+          "XPath": "//span[@title='Operational Start Date:']/../..//input"
+        },
+        {
+          "Name": "OperationalEndDate",
+          "XPath": "//span[@title='Operational End Date:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsCRAWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        }
+      ]
+    },
+    {
+      "Name": "ProposeServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "LrPeriod",
+          "ElementName": "LR Period Text Box"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        },
+        {
+          "Name": "LandRequirementReason",
+          "XPath": "//span[contains(text(),'Land Requirement Reason:')]/../../td//textarea"
+        }
+      ]
+    },
+    {
+      "Name": "ValidateGeneratedNoticesWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Validation']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[@title='Proposed Service Date:']/../..//input"
+        },
+        {
+          "Name": "LrPeriod",
+          "ElementName": "LR Period Text Box"
+        },
+        {
+          "Name": "DateOfEntry",
+          "XPath": "//span[@title='Date of Entry:']/../..//input"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        },
+        {
+          "Name": "LandRequirementReason",
+          "XPath": "//span[contains(text(),'Land Requirement Reason:')]/../../td//textarea"
+        }
+      ]
+    },
+    {
+      "Name": "EnterServiceNoticeOfMakingDatesWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Enter Service Dates')]"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(@title,'Proposed Service Date:')]/../..//input"
+        },
+        {
+          "Name": "ProposedVestingDate",
+          "XPath": "//span[contains(@title,'Proposed Vesting Date:')]/../..//input"
+        },
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Save' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit these GVD Notice of Making Service Dates?']"
+        }
+      ]
+    },
+    {
+      "Name": "GvdNoticeOfMakingServiceDatesWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Enter Service Dates')]"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(@title,'Proposed Service Date:')]/../..//input"
+        },
+        {
+          "Name": "ProposedVestingDate",
+          "XPath": "//span[contains(@title,'Proposed Vesting Date:')]/../..//input"
+        },
+        {
+          "Name": "GvdExecutionDate",
+          "XPath": "//span[contains(text(),'GVD Execution Date:') and not(contains(@class,'hidden'))]/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Save' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit these GVD Notice of Making Service Dates?']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[contains(text(),'OK')]"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveGvdNoticeOfMakingServiceDatesWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these Notice of Making Service Dates?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveGvdPlanWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve Plans']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these plans?']"
+        }
+      ]
+    },
+    {
+      "Name": "EnterSosServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Generate')]"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(@title,'Proposed Service Date:')]/../../td//input"
+        },
+        {
+          "Name": "SOSLandRequirementReason",
+          "XPath": "//span[contains(@title,'SOS Land Requirement Reason:')]/../../td//textarea"
+        },
+        {
+          "Name": "",
+          "XPath": "//*[@name='btn_Save']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to generate this SoS Notice?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveSosNoticeWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this SOS Notice?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveSosPlansWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Plan Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this SOS Plan?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approve Service Details')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this task?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveExecutedGvdPlansWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval -')]"
+        },
+        {
+          "Name": "NpsPageTitleLegalAdvisor",
+          "XPath": "//span[contains(@title,'Legal Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve Plans' and text()='Approve Plans']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject Plans' and text()='Reject Plans']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these plans?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveDraftGvdWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval -')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject']"
+        },
+        {
+          "Name": "RejectCommentBox",
+          "XPath": "//span[@name='Label Comment' and @title='Comment:']/../../td//textarea"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this GVD Notice?']"
+        },
+        {
+          "Name": "DownloadFlabLink",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadAcquisitionPlanLink",
+          "XPath": "//span[contains(text(),'Download Acquisition Plan')]"
+        },
+        {
+          "Name": "DownloadGVDPlanLink",
+          "XPath": "//span[contains(text(),'Download GVD Plan')]"
+        },
+        {
+          "Name": "DownloadDraftGVDNoticeLink",
+          "XPath": "//span[contains(text(),'Download Draft GVD Deed')]"
+        }
+      ]
+    },
+    {
+      "Name": "RejectGvdPlanWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        },
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval -')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject Plans']"
+        },
+        {
+          "Name": "RejectCommentBox",
+          "XPath": "//span[@name='Label Comment' and @title='Comment:']/../../td//textarea"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these plans?']"
+        },
+        {
+          "Name": "AreYouSureRejectMessage",
+          "XPath": "//div[text()='Are you sure you want to reject these plans?']"
+        }
+      ]
+    },
+    {
+      "Name": "RejectAcquisitionMethodWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval')]"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject']"
+        },
+        {
+          "Name": "RejectCommentBox",
+          "XPath": "//span[@name='Label Comment' and @title='Comment:']/../../td//textarea"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureRejectMessage",
+          "XPath": "//div[text()='Are you sure you want to reject acquisition methods?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveGvdNttPlanWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approve GVD NTT Plans -')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve Plans' and text()='Approve Plans']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject Plans' and text()='Reject Plans']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these plans?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveLondonGazzetteServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve and publish this London Gazette Notice?']"
+        },
+        {
+          "Name": "DownloadFlabLink",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadAcquisitionPlanLink",
+          "XPath": "//span[contains(text(),'Download Acquisition Plan')]"
+        }
+      ]
+    },
+    {
+      "Name": "EnterServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Propose Service Details')]"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(@title,'Proposed Service Date:')]/../..//input"
+        },
+        {
+          "Name": "NoticeEffectiveDate",
+          "XPath": "//span[contains(@title,'Notice Effective Date:')]/../..//input"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[(text()='Are you sure you want to approve and publish this London Gazette Notice?') or (text()='Are you sure you want to set these Service Details?')]"
+        },
+        {
+          "Name": "DownloadFlabLink",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadAcquisitionPlanLink",
+          "XPath": "//span[contains(text(),'Download Acquisition Plan')]"
+        }
+      ]
+    },
+    {
+      "Name": "GenerateGvdWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Generation' and text()='Generation']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Save' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to generate the GVD Notice?']"
+        },
+        {
+          "Name": "GvdVestingDatePeriod",
+          "XPath": "//span[contains(text(),'GVD Vesting Date Period:')]/../..//input"
+        },
+        {
+          "Name": "PreliminaryServiceDate",
+          "XPath": "//span[contains(text(),'Preliminary Service Date:')]/../..//input"
+        },
+        {
+          "Name": "GvdExecutionDate",
+          "XPath": "//span[contains(text(),'London Gazette Notice Date:')]/../..//input"
+        },
+        {
+          "Name": "RejectionCommentText",
+          "XPath": "//span[contains(@title,'rejection test for laa')]/@title"
+        }
+      ]
+    },
+    {
+      "Name": "SubmitLondonGazzetteServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Generation' and text()='Generation']"
+        },
+        {
+          "Name": "LgnPublicationDate",
+          "XPath": "//*[contains(@name,'LGN Publication Date Label')]/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Save' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to generate the London Gazette Notice?']"
+        },
+        {
+          "Name": "DownloadFlabLink",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        },
+        {
+          "Name": "DownloadAcquisitionPlanLink",
+          "XPath": "//span[contains(text(),'Download Acquisition Plan')]"
+        }
+      ]
+    },
+    {
+      "Name": "ValidateLapDataWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Validation' and text()='Validation']"
+        },
+        {
+          "Name": "ValidateLrDataButton",
+          "XPath": "//*[@name='Approve' and text()='Validate LR Data']"
+        },
+        {
+          "Name": "ValidateAllButton",
+          "XPath": "//*[./span/span = 'Validate All']"
+        },
+        {
+          "Name": "RejectCommentBox",
+          "XPath": "//span[@name='LR Validate Comments Label' and @title='Comments:']/../../td//textarea"
+        },
+        {
+          "Name": "RejectLrButton",
+          "XPath": "//*[@name = 'Reject']"
+        },
+        {
+          "Name": "AreYouSureYouWishToRejectMessage",
+          "XPath": "//div[contains(text(),'Are you sure you wish to reject LR information? All data will be deleted.')]"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[contains(text(),'Are you sure you want to accept LR information?') or contains(text(),'Are you sure you wish to accept LR information?')]"
+        },
+        {
+          "Name": "LapIds",
+          "XPath": "//td[contains(@data-options,'LAP') and contains(@data-options,'Flag.png')]"
+        }
+      ]
+    },
+    {
+      "Name": "EnterGnmServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details' and text()='Propose Service Details']"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(text(),'Proposed Service Date:')]/../../td//input"
+        },
+        {
+          "Name": "GvdProposedVestingDate",
+          "XPath": "//span[contains(text(),'GVD Proposed Vesting Date:')]/../../td//input"
+        },
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        }
+      ]
+    },
+    {
+      "Name": "EnterGpnServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Propose Service Details' and text()='Propose Service Details']"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to set these Service Details?']"
+        },
+        {
+          "Name": "ProposedServiceDate",
+          "XPath": "//span[contains(text(),'Proposed Service Date:')]/../..//input"
+        }
+      ]
+    },
+    {
+      "Name": "ValidateNoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Validation' and text()='Validation']"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve Notices']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject Notices']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        },
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        }
+      ]
+    },
+    {
+      "Name": "ValidateGpnNoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Validation' and text()='Validation']"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve Notices']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject Notices']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveNoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval') and contains(text(),'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve Notices']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject Notices']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        },
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveS2NoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval') and contains(text(),'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve Notices']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject Notices']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        },
+        {
+          "Name": "GvdNumber",
+          "XPath": "//span[contains(text(),'GVD Number:')]/../..//input"
+        },
+        {
+          "Name": "GvdName",
+          "XPath": "//span[contains(text(),'GVD Name:')]/../..//input"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveGvdNoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval') and contains(text(),'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve' and text()='Approve Notices']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject' and text()='Reject Notices']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//a[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveGpnNoticePacksWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval') and contains(text(),'Approval')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "RejectButton",
+          "XPath": "//*[@name='btn_Reject']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve these notices?']"
+        }
+      ]
+    },
+    {
+      "Name": "GnmRecordPreliminaryServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Record Preliminary Service Details') and contains(text(),'Record Preliminary Service Details')]"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "ExpectedDateServed",
+          "XPath": "//span[contains(text(),'Expected Date Served:')]/../..//input"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "BatchServiceMethodVerificationMessage",
+          "XPath": "//div[text()='Are you sure you want to change the service method of all notices?']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit the task?']"
+        },
+        {
+          "Name": "BatchServiceMethodDropdown",
+          "XPath": "//*[@title='Batch Service Method:']/../../*[2]"
+        }
+      ]
+    },
+    {
+      "Name": "RecordPreliminaryServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Record Preliminary Service Details') and contains(text(),'Record Preliminary Service Details')]"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "ExpectedDateServed",
+          "XPath": "//span[contains(text(),'Expected Date Served:')]/../..//input"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "BatchServiceMethodVerificationMessage",
+          "XPath": "//div[text()='Are you sure you want to change the service method of all notices?']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit the task?']"
+        },
+        {
+          "Name": "BatchServiceMethodDropdown",
+          "XPath": "//*[@title='Batch Service Method:']/../../*[2]"
+        }
+      ]
+    },
+    {
+      "Name": "GnmRecordFinalServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Record Final Service Details') and contains(text(),'Record Final Service Details')]"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "BatchServiceMethodVerificationMessage",
+          "XPath": "//div[text()='Are you sure you want to change the service method of all notices?']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit the task?']"
+        }
+      ]
+    },
+    {
+      "Name": "GnmApproveFinalServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approve Service Details') and contains(text(),'Approve Service Details')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this task?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveFinalServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approve Service Details') and contains(text(),'Approve Service Details')]"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve this task?']"
+        }
+      ]
+    },
+    {
+      "Name": "EditRightsSoughtWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[@title='Edit Rights Sought']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure that you want to submit changes?']"
+        }
+      ]
+    },
+    {
+      "Name": "RecordFinalServiceDetailsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Record Final Service Details') and contains(text(),'Record Final Service Details')]"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit' and text()='Submit']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "BatchServiceMethodVerificationMessage",
+          "XPath": "//div[text()='Are you sure you want to change the service method of all notices?']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to submit the task?']"
+        }
+      ]
+    },
+    {
+      "Name": "SignoffAcquisitionMethodsWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Sign Off')]"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve acquisition methods?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveFlabWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve the FLAB upload?']"
+        }
+      ]
+    },
+    {
+      "Name": "ApproveAcquisitionMethodWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "NpsPageTitle",
+          "XPath": "//span[contains(@title,'Approval')]"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to approve acquisition methods?']"
+        }
+      ]
+    },
+    {
+      "Name": "AssignPscWfPage",
+      "Inherits": [ "GeneralWfPage" ],
+      "Element": [
+        {
+          "Name": "PscDropDown",
+          "XPath": "//div[contains(@class,'dropdown-box')]"
+        },
+        {
+          "Name": "TerraQuestDropdownItem",
+          "XPath": "//li[@title='TerraQuest[TQU]']"
+        },
+        {
+          "Name": "AreYouSureMessage",
+          "XPath": "//div[text()='Are you sure you want to assign to this PSC?']"
+        }
+      ]
+    },
+    {
+      "Name": "GeneralWfPage",
+      "Element": [
+        {
+          "Name": "NpsPageTitleMain",
+          "ElementName": "FormTitle"
+        },
+        {
+          "Name": "NpsPageTitleSub",
+          "ElementName": "FormTitle_Em"
+        },
+        {
+          "Name": "LaaCode",
+          "ElementName": "LAA Code Text Box"
+        },
+        {
+          "Name": "LaaName",
+          "ElementName": "LAA Name Text Box"
+        },
+        {
+          "Name": "ConstructionSector",
+          "ElementName": "Construction Sector Text Box"
+        },
+        {
+          "Name": "ClrNumber",
+          "XPath": "//input[contains(@name,'CR Number Text Box') or contains(@name,'construction_land_req_number Text Box')]"
+        },
+        {
+          "Name": "GvdNumber",
+          "ElementName": "gvd_number Text Box"
+        },
+        {
+          "Name": "GvdName",
+          "ElementName": "gvd_name Text Box"
+        },
+        {
+          "Name": "GvdLandRequirement",
+          "ElementName": "GVD Land Requirement Data Label"
+        },
+        {
+          "Name": "GvdPreliminaryNoticeServedDate",
+          "ElementId": "454dce6d-f37d-44a1-936b-7b699b1eaf00_88faef9c-4d45-0beb-5f4a-efcbfe192a84_TextBox"
+        },
+        {
+          "Name": "GvdVestingPeriod",
+          "XPath": "//span[@title='GVD Vesting Period:']/../..//input"
+        },
+        {
+          "Name": "GvdVestingDate",
+          "XPath": "//span[@title='GVD Vesting Date:']/../..//input"
+        },
+        {
+          "Name": "SubmitButton",
+          "XPath": "//*[@name='btn_Submit']"
+        },
+        {
+          "Name": "ApproveButton",
+          "XPath": "//*[@name='btn_Approve']"
+        },
+        {
+          "Name": "OkButton",
+          "XPath": "//*[text()='OK']"
+        },
+        {
+          "Name": "LaaDescription",
+          "XPath": "//span[@title='LAA Description:']/../..//textarea"
+        },
+        {
+          "Name": "RequiredDateOfEntry",
+          "ElementId": "c6f88eec-a2ba-48fe-a7ae-f443f3557f8d_f282a65a-483d-60ff-27fa-a76af22b6abb_TextBox"
+        },
+        {
+          "Name": "ProcessMovedToNextStageMessage",
+          "XPath": "//div[text()='Thank you, this process has moved to the next stage.']"
+        },
+        {
+          "Name": "DownloadFlabLink",
+          "XPath": "//span[contains(text(),'Download FLAB')]"
+        }
+      ]
+    }
+  ]
+}]
